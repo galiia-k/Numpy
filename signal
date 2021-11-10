@@ -1,0 +1,22 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+for i in range(1, 4):
+    with open('signal0' + str(i) + '.dat', 'r') as f:
+        arr = [float(line) for line in f]
+        x = [j for j in range(np.size(arr))]
+        res = np.zeros(np.size(arr))
+        for j in range(10):
+            res[j] = np.sum(arr[0:j + 1])/(j + 1)
+        for j in range(10, np.size(arr) - 1):
+            res[j] = np.sum(arr[j - 9: j + 1])/10
+        res[np.size(arr) - 1] = np.sum(arr[-10:])/10
+        # Построение графиков
+        plt.title("unfiltered and filtered signals " + str(i))  # заголовок
+        plt.xlabel("x")  # ось абсцисс
+        plt.ylabel("y")  # ось ординат
+        plt.grid()  # включение отображение сетки
+        plt.plot(x, arr, 'c', label='unfiltered')  # построение графика
+        plt.plot(x, res, 'k', label='filtered')  # построение графика
+        plt.legend()
+        plt.show()
