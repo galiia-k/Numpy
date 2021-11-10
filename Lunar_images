@@ -3,7 +3,7 @@ from PIL import Image
 
 # считаем картинку в numpy array
 for i in range(1, 4):
-    img = Image.open('C:/Users/Мвидео/Desktop/lunar_images/lunar0'+str(i)+'_raw.jpg')
+    img = Image.open('lunar0'+str(i)+'_raw.jpg')
     data = np.array(img)
 
     min_st = np.min(data)
@@ -23,6 +23,6 @@ for i in range(1, 4):
     res_img = Image.fromarray(updated_data)
     if res_img.mode != 'RGB':
         res_img = res_img.convert('RGB')
-    res_img.save('C:/Users/Мвидео/Desktop/lunar_images/lunar1'+str(i)+'_raw.png')
-    res_img.save('C:/Users/Мвидео/Desktop/lunar_images/lunar1' + str(i) + '_raw.jpg')
+    res_img.save('lunar1'+str(i)+'_raw.png')
+    res_img.save('lunar2' + str(i) + '_raw.jpg')
     
